@@ -27,8 +27,9 @@ A web-based music player built with Vite, React, and TypeScript using the Spotif
 4. **Set up environment variables:**
    - Create a .env file in the project root.
    - Add your Spotify Client ID and Secret:
+
 &nbsp;
-&nbsp;  
+ 
    ```env
    # .env
    
