@@ -1,3 +1,13 @@
+@import url('https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+:root {
+  --primary-color: #FDFF6B;
+  --gray-900: #18181B;
+  --gray-800: #27272A;
+  --gray-700: #343438;
+  override-colors: white #FAFAFA;
+}
+
 #root {
   max-width: 1280px;
   margin: 0 auto;
@@ -5,38 +15,74 @@
   text-align: center;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+body {
+  font-family: 'Figtree', sans-serif;
+  background-color: var(--gray-900);
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+h1, p, em {
+  color: white;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 160%;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+/* Primary Button */
+.primary-button {
+  font-size: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow: hidden;
+  padding: 0.25rem 3rem;
+  cursor: pointer;
+  border: none;
+  background: var(--primary-color);
+
+  transition: background .4s linear;
+  will-change: background;
 }
 
-.card {
-  padding: 2em;
+.primary-button:hover {
+  background: var(--primary-color);
 }
 
-.read-the-docs {
-  color: #888;
+.primary-button:hover span:nth-of-type(1) em {
+  opacity: 0;
+  transform: rotateX(90deg) scaleX(.9) translate3d(0,-10px,0);
 }
+
+.primary-button:hover span:nth-of-type(2) em {
+  opacity: 1;
+  transform: rotateX(0deg) scaleX(1) translateZ(0);
+  transition: transform .75s cubic-bezier(.645,.045,.355,1),opacity .35s linear .3s;
+}
+
+span {
+  position: relative;
+  display: block;
+  perspective: 108px;
+}
+
+span:nth-of-type(2) {
+  position: absolute;
+}
+
+em {
+  display: inline-block;
+  color: var(--gray-900);
+  will-change: transform,opacity,transition;
+  transition: transform .55s cubic-bezier(.645,.045,.355,1),opacity .35s linear .2s;
+}
+
+span:nth-of-type(1) em {
+  transform-origin: top;
+}
+
+span:nth-of-type(2) em {
+  opacity: 0;
+  transform: rotateX(-90deg) scaleX(.9) translate3d(0,10px,0);
+  transform-origin: bottom;
+}
+
+/* End of primary button */
