@@ -113,21 +113,6 @@ input[type="radio"] {
   padding: 0;
 }
 
-input[type="date"],
-input[type="datetime-local"],
-input[type="month"],
-input[type="time"],
-input[type="week"] {
-  -webkit-appearance: listbox;
-}
-
-button,
-[type="button"],
-[type="reset"],
-[type="submit"] {
-  -webkit-appearance: button;
-}
-
 ::-moz-focus-inner {
   padding: 0;
   border-style: none;
@@ -154,7 +139,6 @@ progress {
 
 [type="search"] {
   outline-offset: -2px;
-  -webkit-appearance: none;
 }
 
 ::-webkit-search-decoration {

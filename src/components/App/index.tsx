@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react'
 import '../../App.css'
-import TrackInfo from '../TrackInfo'
 import { getAccessToken } from '../../auth'
 import Nav from '../Nav'
 
@@ -32,7 +31,6 @@ function App() {
     return(
       <>
         <Nav />
-        <TrackInfo />
       </>
   )}
 }
