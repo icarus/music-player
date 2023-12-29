@@ -13,3 +13,27 @@ A web-based music player built with Vite, React, and TypeScript using the Spotif
    ```bash
    git clone git@github.com:icarus/music-player.git
    ```
+   
+2. **Navigate to the project directory:**
+   ```bash
+   cd music-player
+   ```
+   
+3. **Install dependencies:**
+   ```bash
+   npm install  
+   ```
+   
+4. **Set up environment variables:**
+   - Create a .env file in the project root.
+   - Add your Spotify Client ID and Secret:
+     ```env
+     REACT_APP_SPOTIFY_CLIENT_ID=your_client_id
+     REACT_APP_SPOTIFY_CLIENT_SECRET=your_client_secret
+     ```
+     
+5. **Run the application:**
+   ```bash
+   npm run dev  
+   ```
+
