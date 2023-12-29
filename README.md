@@ -1,6 +1,3 @@
-## Description
-A web-based music player built with Vite, React, and TypeScript using the Spotify API. It allows for browsing, searching, and playing music from Spotify's vast library.
-
 ## Features
 - **User Authentication**: Secure log in with Spotify credentials.
 - **Search Functionality**: Find songs, albums, and artists.
