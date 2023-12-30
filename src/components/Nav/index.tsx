@@ -1,7 +1,11 @@
-import React from 'react';
+import { Navbar, Profile } from './style';
 import { redirectToAuthCodeFlow } from '../../auth';
 
-const Nav: React.FC = () => {
+interface IProps {
+  profile?: string | null;
+}
+
+const Nav:React.FC<IProps> = ( { profile } ) => {
   const clientId = import.meta.env.VITE_CLIENT_ID;
 
   const handleClick = async () => {
@@ -9,21 +13,25 @@ const Nav: React.FC = () => {
   }
 
   return (
-    <nav>
+    <Navbar>
       <h1>Music Player</h1>
-      <button className="primary-button" onClick={handleClick}>
-        <span>
-          <em>
-            Login
-          </em>
-        </span>
-        <span>
-          <em>
-            Login
-          </em>
-        </span>
-      </button>
-    </nav>
+      {!profile ? (
+          <button className="primary-button" onClick={handleClick}>
+            <span>
+              <em>
+                Login
+              </em>
+            </span>
+            <span>
+              <em>
+                Login
+              </em>
+            </span>
+          </button>
+        ) : (
+          <Profile profile={profile} />
+        )}
+    </Navbar>
   );
 };
 

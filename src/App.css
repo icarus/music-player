@@ -1,22 +1,23 @@
 @import url('https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
 :root {
+  --font-family: 'Figtree', sans-serif;
   --primary-color: #FDFF6B;
   --gray-900: #18181B;
   --gray-800: #27272A;
   --gray-700: #343438;
+  --gray-600: #5D5E6C;
+  --gray-500: #737584;
   override-colors: white #FAFAFA;
 }
 
 #root {
-  max-width: 1280px;
   margin: 0 auto;
-  padding: 2rem;
   text-align: center;
 }
 
 body {
-  font-family: 'Figtree', sans-serif;
+  font-family: var(--font-family);
   background-color: var(--gray-900);
 }
 
