@@ -9,13 +9,14 @@ export const Container = styled.div`
 `
 
 export const TrackViewer = styled.div`
-  min-width: 70vw
+  width: 70vw;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   padding: 2rem;
   gap: 2rem;
   text-align: left;
+  overflow: hidden;
 `
 
 export const Side = styled.div`
