@@ -29,7 +29,7 @@ const Nav:React.FC<IProps> = ( { profile } ) => {
             </span>
           </button>
         ) : (
-          <Profile profile={profile} />
+          <Profile profile={profile}/>
         )}
     </Navbar>
   );

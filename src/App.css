@@ -38,10 +38,8 @@ h1, p, em {
   overflow: hidden;
   padding: 0.25rem 3rem;
   cursor: pointer;
-  border: none;
-  background: var(--primary-color);
-
-  transition: background .4s linear;
+  border: 1px solid var(--primary-color);
+  transition: all 0.4s linear;
   will-change: background;
 }
 
@@ -49,15 +47,19 @@ h1, p, em {
   background: var(--primary-color);
 }
 
+.primary-button:hover em {
+  color: var(--gray-900); /* Apply the color change on hover */
+}
+
 .primary-button:hover span:nth-of-type(1) em {
   opacity: 0;
-  transform: rotateX(90deg) scaleX(.9) translate3d(0,-10px,0);
+  transform: rotateX(90deg) scaleX(0.9) translate3d(0, -10px, 0);
 }
 
 .primary-button:hover span:nth-of-type(2) em {
   opacity: 1;
   transform: rotateX(0deg) scaleX(1) translateZ(0);
-  transition: transform .75s cubic-bezier(.645,.045,.355,1),opacity .35s linear .3s;
+  transition: transform 0.75s cubic-bezier(0.645, 0.045, 0.355, 1), opacity 0.35s linear 0.3s;
 }
 
 span {
@@ -72,9 +74,9 @@ span:nth-of-type(2) {
 
 em {
   display: inline-block;
-  color: var(--gray-900);
-  will-change: transform,opacity,transition;
-  transition: transform .55s cubic-bezier(.645,.045,.355,1),opacity .35s linear .2s;
+  color: var(--primary-color);
+  will-change: transform, opacity, transition;
+  transition: transform 0.55s cubic-bezier(0.645, 0.045, 0.355, 1), opacity 0.35s linear 0.2s;
 }
 
 span:nth-of-type(1) em {
@@ -83,11 +85,12 @@ span:nth-of-type(1) em {
 
 span:nth-of-type(2) em {
   opacity: 0;
-  transform: rotateX(-90deg) scaleX(.9) translate3d(0,10px,0);
+  transform: rotateX(-90deg) scaleX(0.9) translate3d(0, 10px, 0);
   transform-origin: bottom;
 }
 
 /* End of primary button */
+
 
 a {
   text-decoration: none;
