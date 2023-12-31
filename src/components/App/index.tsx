@@ -11,8 +11,8 @@ import { ITrack, PlaylistOption } from '../../types'
 function App() {
 	const [token, setToken] = useState<string | null>(null)
   const [profile, setProfile] = useState<string | null>(null)
-  const [playlists, setPlaylists] = useState<Array<string>>([]);
-  const [tracks, setTracks] = useState<Array<string>>([]);
+  const [playlists, setPlaylists] = useState<PlaylistOption[]>([]);
+  const [tracks, setTracks] = useState<string[]>([]);
   const [track, setTrack] = useState<ITrack | null>(null)
   const durationMs = track?.durationMs || 0;
   const [progressMs, setProgressMs] = useState(0);
@@ -72,7 +72,7 @@ function App() {
       },
     })
     const uris = data.items.map((item: any) => item.track.uri);
-    setTracks(uris)
+    setTracks(uris);
   }
 
   useEffect(() => {
