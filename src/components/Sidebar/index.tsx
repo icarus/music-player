@@ -1,11 +1,11 @@
 import Select, { StylesConfig } from 'react-select';
 import Controls from '../Controls';
 import TrackImage from '../TrackImage';
-import { ITrack } from '../../types';
+import { ITrack, PlaylistOption } from '../../types';
 
 interface IProps {
-  playlists: PlaylistOption[]; // Update to PlaylistOption array
-  getTracks: (id: string) => void; // Specify the function type for getTracks
+  playlists: PlaylistOption[];
+  getTracks: (id: string) => void; 
   token: string | null;
   tracks: Array<string>;
   track: ITrack | null;

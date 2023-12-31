@@ -10,6 +10,12 @@ export interface ITrack {
   uri: string;
 }
 
+export interface PlaylistOption {
+  name: string;
+  id: string;
+}
+
+
 export interface IState {
   currentDeviceId: string;
   deviceId: string;
