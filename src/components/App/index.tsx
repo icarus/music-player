@@ -54,12 +54,15 @@ function App() {
         Authorization: `Bearer ${token}`,
         "Content-type": "application/json",
       },
-    })
-    const playlists = data.items.map(({name, id}: {name: string, id:number}) => {
-      return {name, id}
-    })
-    setPlaylists(playlists)
-  }
+    });
+
+    const playlistsOptions: PlaylistOption[] = data.items.map((item: any) => ({
+      name: item.name,
+      id: item.id.toString() 
+    }));
+
+    setPlaylists(playlistsOptions);
+  };
 
   const getTracks = async (id:string) => {
     const { data } = await axios.get(`https://api.spotify.com/v1/playlists/${id}/tracks`, {
