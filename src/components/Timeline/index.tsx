@@ -1,3 +1,8 @@
+interface TrackTimelineProps {
+  durationMs: number;
+  progressMs: number;
+}
+
 const TrackTimeline: React.FC<TrackTimelineProps> = ({ durationMs, progressMs }) => {
   const progressPercentage = (progressMs / durationMs) * 100;
 
