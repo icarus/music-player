@@ -18,9 +18,6 @@ interface OptionType {
 }
 
 const Sidebar:React.FC<IProps> = ( { playlists, getTracks, token, tracks, track, setTrack } ) => {
-
-  const options: OptionType[] = playlists.map(playlist => ({ label: playlist, value: playlist }));
-
   const styles: StylesConfig<OptionType, false> = {
     control: (provided) => ({
       ...provided,
@@ -47,7 +44,7 @@ const Sidebar:React.FC<IProps> = ( { playlists, getTracks, token, tracks, track,
       ...provided,
       color: state.isDisabled ? '#fff' : '#fff',
     }),
-    indicatorSeparator: (provided) => ({
+    indicatorSeparator: () => ({
       display: 'none',
     }),
     dropdownIndicator: (provided) => ({
