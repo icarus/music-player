@@ -6,7 +6,7 @@ import axios from 'axios'
 import { Container, TrackViewer, Side } from './style'
 import TrackInfo from '../TrackInfo'
 import Sidebar from '../Sidebar'
-import { ITrack } from '../../types'
+import { ITrack, PlaylistOption } from '../../types'
 
 function App() {
 	const [token, setToken] = useState<string | null>(null)
@@ -58,7 +58,7 @@ function App() {
 
     const playlistsOptions: PlaylistOption[] = data.items.map((item: any) => ({
       name: item.name,
-      id: item.id.toString() 
+      id: item.id.toString()
     }));
 
     setPlaylists(playlistsOptions);
