@@ -1,13 +1,13 @@
-import Select, { StylesConfig } from 'react-select'
+import Select, { StylesConfig } from 'react-select';
 import Controls from '../Controls';
 import TrackImage from '../TrackImage';
 import { ITrack } from '../../types';
 
 interface IProps {
-  playlists: Array<string>
-  getTracks: any;
+  playlists: PlaylistOption[]; // Update to PlaylistOption array
+  getTracks: (id: string) => void; // Specify the function type for getTracks
   token: string | null;
-  tracks: Array<string>
+  tracks: Array<string>;
   track: ITrack | null;
   setTrack: React.Dispatch<React.SetStateAction<ITrack | null>>;
 }
@@ -53,20 +53,27 @@ const Sidebar:React.FC<IProps> = ( { playlists, getTracks, token, tracks, track,
     }),
   };
 
-  const handleChange = ((e:any) => {
-    getTracks(e.id)
-  })
+  const options: OptionType[] = playlists.map(playlist => ({
+    label: playlist.name,
+    value: playlist.id,
+  }));
+
+  const handleChange = (option: OptionType | null) => {
+    if (option) {
+      getTracks(option.value);
+    }
+  };
 
   return (
     <>
       <Controls
-        token={token}
+        token={token || ''}
         tracks={tracks}
         setTrack={setTrack}
       />
       <Select
-        options={playlists}
-        getOptionLabel={(e:any)=>e.name}
+        options={options}
+        getOptionLabel={(option: OptionType) => option.label}
         onChange={handleChange}
         styles={styles}
       />
