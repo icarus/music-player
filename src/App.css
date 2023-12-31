@@ -87,3 +87,19 @@ span:nth-of-type(2) em {
 }
 
 /* End of primary button */
+
+a {
+  text-decoration: none;
+  color: var(--primary-color);
+}
+
+.artist {
+  width: fit-content;
+  padding-bottom: 0rem;
+  color: var(--primary-color);
+  transition: text-decoration .4s linear;
+
+  &:hover {
+    border-bottom: 2px solid var(--primary-color);
+  }
+}

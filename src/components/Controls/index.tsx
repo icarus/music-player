@@ -1,11 +1,13 @@
 import SpotifyWebPlayer from "react-spotify-web-playback";
+import { IState, ITrack } from "../../types";
 
 interface IProps {
   token: string
   tracks: Array<string>
+  setTrack: React.Dispatch<React.SetStateAction<ITrack | null>>;
 }
 
-const Controls:React.FC<IProps> = ( { token, tracks } ) => {
+const Controls:React.FC<IProps> = ( { token, tracks, setTrack } ) => {
   return (
     <>
       <SpotifyWebPlayer
@@ -23,6 +25,9 @@ const Controls:React.FC<IProps> = ( { token, tracks } ) => {
           sliderColor: 'var(--primary-color)',
           sliderTrackColor: 'var(--gray-700)',
           loaderColor: 'var(--primary-color)',
+        }}
+        callback={(state: IState) => {
+          setTrack(state.track)
         }}
       />
     </>

@@ -6,13 +6,14 @@ import axios from 'axios'
 import { Container, TrackViewer, Side } from './style'
 import TrackInfo from '../TrackInfo'
 import Sidebar from '../Sidebar'
+import { ITrack } from '../../types'
 
 function App() {
 	const [token, setToken] = useState<string | null>(null)
   const [profile, setProfile] = useState<string | null>(null)
   const [playlists, setPlaylists] = useState<Array<string> | null>(null)
   const [tracks, setTracks] = useState<Array<string> | null>(null)
-  const [track, setTrack] = useState<Array<string> | null>(null)
+  const [track, setTrack] = useState<ITrack | null>(null)
 
   const clientId = import.meta.env.VITE_CLIENT_ID;
   const params = new URLSearchParams(window.location.search);
@@ -83,14 +84,18 @@ function App() {
         />
         <Container>
           <TrackViewer>
-            <TrackInfo/>
+            <TrackInfo
+              track={track}
+            />
           </TrackViewer>
           <Side>
             <Sidebar
+              track={track}
               token={token}
               tracks={tracks}
               playlists={playlists}
               getTracks={getTracks}
+              setTrack={setTrack}
             />
           </Side>
         </Container>

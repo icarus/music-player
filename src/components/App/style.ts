@@ -13,6 +13,9 @@ export const TrackViewer = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  padding: 2rem;
+  gap: 2rem;
+  text-align: left;
 `
 
 export const Side = styled.div`
