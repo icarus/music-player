@@ -8,11 +8,16 @@ import TrackInfo from '../TrackInfo'
 import Sidebar from '../Sidebar'
 import { ITrack } from '../../types'
 
+interface Playlist {
+  name: string;
+  id: number;
+}
+
 function App() {
 	const [token, setToken] = useState<string | null>(null)
   const [profile, setProfile] = useState<string | null>(null)
-  const [playlists, setPlaylists] = useState<Array<string> | null>(null)
-  const [tracks, setTracks] = useState<Array<string> | null>(null)
+  const [playlists, setPlaylists] = useState<Array<Playlist> | null>(null);
+  const [tracks, setTracks] = useState<Array<string> | null>(null);
   const [track, setTrack] = useState<ITrack | null>(null)
 
   const clientId = import.meta.env.VITE_CLIENT_ID;
@@ -53,21 +58,21 @@ function App() {
         "Content-type": "application/json",
       },
     })
-    const playlists = data.items.map(({name, id}: {name: string, id:number}) => {
-      return {name, id}
-    })
-    setPlaylists(playlists)
+    const playlistsData = data.items.map(({ name, id }: { name: string, id: number }) => {
+      return { name, id };
+    });
+    setPlaylists(playlistsData);
   }
 
-  const getTracks = async (id:string) => {
+  const getTracks = async (id: string) => {
     const { data } = await axios.get(`https://api.spotify.com/v1/playlists/${id}/tracks`, {
       headers : {
         Authorization: `Bearer ${token}`,
         "Content-type": "application/json",
       },
     })
-    const uris = Object.entries(data.items).map(([key, val]) => val.track.uri)
-    setTracks(uris)
+    const tracksData = data.items.map((item: any) => item.track.uri); // Assuming each item has a 'track' object with a 'uri' property.
+    setTracks(tracksData);
   }
 
   if (!token) {
