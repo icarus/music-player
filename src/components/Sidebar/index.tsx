@@ -1,4 +1,4 @@
-import Select from 'react-select'
+import Select, { StylesConfig } from 'react-select'
 import Controls from '../Controls';
 import TrackImage from '../TrackImage';
 import { ITrack } from '../../types';
@@ -12,9 +12,16 @@ interface IProps {
   setTrack: React.Dispatch<React.SetStateAction<ITrack | null>>;
 }
 
+interface OptionType {
+  label: string;
+  value: string;
+}
+
 const Sidebar:React.FC<IProps> = ( { playlists, getTracks, token, tracks, track, setTrack } ) => {
 
-  const styles = {
+  const options: OptionType[] = playlists.map(playlist => ({ label: playlist, value: playlist }));
+
+  const styles: StylesConfig<OptionType, false> = {
     control: (provided) => ({
       ...provided,
       fontFamily: 'var(--font-family)',

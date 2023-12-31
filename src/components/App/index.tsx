@@ -11,8 +11,8 @@ import { ITrack } from '../../types'
 function App() {
 	const [token, setToken] = useState<string | null>(null)
   const [profile, setProfile] = useState<string | null>(null)
-  const [playlists, setPlaylists] = useState<Array<string> | null>(null)
-  const [tracks, setTracks] = useState<Array<string> | null>(null)
+  const [playlists, setPlaylists] = useState<Array<string>>([]);
+  const [tracks, setTracks] = useState<Array<string>>([]);
   const [track, setTrack] = useState<ITrack | null>(null)
   const durationMs = track?.durationMs || 0;
   const [progressMs, setProgressMs] = useState(0);
@@ -68,7 +68,7 @@ function App() {
         "Content-type": "application/json",
       },
     })
-    const uris = data.items.map((item: string) => item.track.uri);
+    const uris = data.items.map((item: any) => item.track.uri);
     setTracks(uris)
   }
 
