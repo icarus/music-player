@@ -1,11 +1,11 @@
 import Select, { StylesConfig } from 'react-select';
 import Controls from '../Controls';
-import TrackImage from '../TrackImage';
 import { ITrack, PlaylistOption } from '../../types';
+import Tracks from '../Tracks';
 
 interface IProps {
   playlists: PlaylistOption[];
-  getTracks: (id: string) => void; 
+  getTracks: (id: string) => void;
   token: string | null;
   tracks: Array<string>;
   track: ITrack | null;
@@ -17,7 +17,7 @@ interface OptionType {
   value: string;
 }
 
-const Sidebar:React.FC<IProps> = ( { playlists, getTracks, token, tracks, track, setTrack } ) => {
+const Sidebar:React.FC<IProps> = ( { playlists, getTracks, token, tracks, setTrack } ) => {
   const styles: StylesConfig<OptionType, false> = {
     control: (provided) => ({
       ...provided,
@@ -77,9 +77,13 @@ const Sidebar:React.FC<IProps> = ( { playlists, getTracks, token, tracks, track,
         onChange={handleChange}
         styles={styles}
       />
-      <TrackImage
-        track={track}
-      />
+      <div className="track-list">
+        {tracks.map((track, index) => (
+          <div key={index} className="track-name">
+            {track}
+          </div>
+        ))}
+      </div>
     </>
   );
 }

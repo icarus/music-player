@@ -4,7 +4,7 @@ export const Box = styled.div `
   width: 50%;
   margin: 0 auto;
   aspect-ratio: 1;
-  background: var(--gray-900);
+  background: var(--gray-950);
 `
 
 interface IImageProps {

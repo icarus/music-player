@@ -3,11 +3,17 @@
 :root {
   --font-family: 'Figtree', sans-serif;
   --primary-color: #FDFF6B;
-  --gray-900: #18181B;
-  --gray-800: #27272A;
-  --gray-700: #343438;
+  --gray-950: #18181B;
+  --gray-900: #393941;
+  --gray-800: #41414B;
+  --gray-700: #4C4D58;
   --gray-600: #5D5E6C;
   --gray-500: #737584;
+  --gray-400: #91939F;
+  --gray-300: #B8B9C1;
+  --gray-200: #D9D9DE;
+  --gray-100: #EEEEF0;
+  --gray-50: #F7F7F8;
   override-colors: white #FAFAFA;
 }
 
@@ -18,7 +24,7 @@
 
 body {
   font-family: var(--font-family);
-  background-color: var(--gray-900);
+  background-color: var(--gray-950);
 }
 
 h1, p, em {
@@ -48,7 +54,7 @@ h1, p, em {
 }
 
 .primary-button:hover em {
-  color: var(--gray-900); /* Apply the color change on hover */
+  color: var(--gray-950);
 }
 
 .primary-button:hover span:nth-of-type(1) em {
@@ -115,4 +121,8 @@ a {
 
 ._WrapperRSWP.__1g3et1y .rswp__active._InfoRSWP.__29fy1h {
   display: none;
+}
+
+.track-list {
+  color: white;
 }
