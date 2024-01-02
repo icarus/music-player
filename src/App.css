@@ -1,9 +1,17 @@
 @import url('https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
+@font-face {
+  font-family: 'VCR OSD Mono';
+  src: url('./assets/VCR_OSD_MONO.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
 :root {
   --font-family: 'Figtree', sans-serif;
   --primary-color: #FDFF6B;
   --gray-950: #18181B;
+  --gray-925: #27272C;
   --gray-900: #393941;
   --gray-800: #41414B;
   --gray-700: #4C4D58;
@@ -99,8 +107,8 @@ span:nth-of-type(2) em {
 
 
 a {
-  text-decoration: none;
-  color: var(--primary-color);
+  text-decoration: underline;
+  color: white;
 }
 
 .artist {
@@ -116,7 +124,7 @@ a {
 .track {
   display: flex;
   flex-direction: column;
-  gap: 4rem;
+  gap: 2rem;
 }
 
 ._WrapperRSWP.__1g3et1y .rswp__active._InfoRSWP.__29fy1h {
@@ -125,4 +133,25 @@ a {
 
 .track-list {
   color: white;
+}
+
+.volume-wrapper {
+  width: 12rem;
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+
+  svg {
+    aspect-ratio: 1;
+    width: 1.5rem;
+  }
+}
+
+.VCR {
+  font-family: 'VCR OSD Mono', monospace;
+  transition: text-decoration .4s linear;
+
+  &:hover {
+    text-decoration: underline;
+  }
 }

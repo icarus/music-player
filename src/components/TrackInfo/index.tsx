@@ -1,37 +1,72 @@
 import { ITrack } from "../../types";
-import { TickerWrapper, TickerContent } from './style'
+import { TickerWrapper, TickerContent, TrackDetails, TickerItem } from './style'
 import TrackTimeline from "../Timeline";
 import TrackImage from "../TrackImage";
+import Controls from "../Controls";
+import placeholderImg from '../../assets/placeholder.png';
+
+const placeholderTrack = {
+  image: placeholderImg,
+}
 
 interface IProps {
-  track: ITrack | null;
   durationMs: number;
   progressMs: number;
+  token: string | null;
+  tracks: Array<string>;
+  track: ITrack | null;
+  setTrack: React.Dispatch<React.SetStateAction<ITrack | null>>;
 }
 
 
-const TrackInfo: React.FC<IProps> = ({ track, durationMs, progressMs }) => {
+const TrackInfo: React.FC<IProps> = ({ track, token, tracks, setTrack, durationMs, progressMs, volume }) => {
 
-  if(!track || track.id === '') return null
+  const defaultTrack = {
+    name: 'No Track Selected',
+    artists: [{ name: 'Select a track to see details', uri: '#' }],
+  };
 
+  const displayTrack = track && track.id !== '' ? track : defaultTrack;
 
   return (
     <>
-      <div className="heading">
-        <h1>{track.name} –</h1>
-        <h1 className="artist">
-            <a href={track.artists[0].uri}>{track.artists[0].name}</a>
-        </h1>
+      <div className="track">
+        <TrackImage
+          track={track && track.id !== '' ? track : placeholderTrack}
+        />
+        <TrackDetails>
+          <p>{displayTrack.name}</p>
+          <a href={displayTrack.artists[0].uri}>{displayTrack.artists[0].name}</a>
+        </TrackDetails>
       </div>
 
-      <div className="track">
-        <TrackImage track={track} />
-        <TrackTimeline durationMs={durationMs} progressMs={progressMs} />
-      </div>
+      <TrackTimeline
+        key={track ? track.id : 'placeholder'}
+        durationMs={durationMs}
+        progressMs={progressMs}
+      />
+
+      <Controls
+        token={token || ''}
+        tracks={tracks}
+        setTrack={setTrack}
+        volume={volume}
+      />
 
       <TickerWrapper>
         <TickerContent>
-          {track.name} – {track.artists[0].name}
+          <TickerItem>
+            {displayTrack.name} – {displayTrack.artists[0].name}
+          </TickerItem>
+          <TickerItem>
+            <a href="https://www.instagram.com/thei">Follow me on Instagram – @thei</a>
+          </TickerItem>
+          <TickerItem>
+            {displayTrack.name} – {displayTrack.artists[0].name}
+          </TickerItem>
+          <TickerItem>
+            <a href="https://www.github.com">Follow me on GitHub – @icarus </a>
+          </TickerItem>
         </TickerContent>
       </TickerWrapper>
     </>

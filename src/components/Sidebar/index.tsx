@@ -1,7 +1,6 @@
 import Select, { StylesConfig } from 'react-select';
-import Controls from '../Controls';
 import { ITrack, PlaylistOption } from '../../types';
-import Tracks from '../Tracks';
+import TrackList from '../TrackList';
 
 interface IProps {
   playlists: PlaylistOption[];
@@ -21,23 +20,25 @@ const Sidebar:React.FC<IProps> = ( { playlists, getTracks, token, tracks, setTra
   const styles: StylesConfig<OptionType, false> = {
     control: (provided) => ({
       ...provided,
+      marginInline: '0.5rem',
       fontFamily: 'var(--font-family)',
-      backgroundColor: 'var(--gray-700)',
-      border: 'none',
+      backgroundColor: 'var(--gray-925)',
+      border: '1px solid var(--gray-500);',
       borderRadius: '0',
       color: '#fff',
       textAlign: 'left',
     }),
     menuList: (provided) => ({
       ...provided,
-      backgroundColor: "var(--gray-800)",
+      backgroundColor: "var(--gray-925)",
+      border: '1px solid var(--gray-500);',
       borderRadius: "0",
       maxHeight: "25vh",
       textAlign: 'left',
     }),
     option: (provided, { isFocused }) => ({
       ...provided,
-      backgroundColor: isFocused ? "var(--gray-700)" : "var(--gray-800)",
+      backgroundColor: isFocused ? "var(--gray-800)" : "var(--gray-925)",
       color: "#fff",
     }),
     singleValue: (provided, state) => ({
@@ -66,24 +67,17 @@ const Sidebar:React.FC<IProps> = ( { playlists, getTracks, token, tracks, setTra
 
   return (
     <>
-      <Controls
-        token={token || ''}
-        tracks={tracks}
-        setTrack={setTrack}
-      />
       <Select
         options={options}
         getOptionLabel={(option: OptionType) => option.label}
         onChange={handleChange}
         styles={styles}
       />
-      <div className="track-list">
-        {tracks.map((track, index) => (
-          <div key={index} className="track-name">
-            {track}
-          </div>
-        ))}
-      </div>
+      <TrackList
+        tracks={tracks}
+        token={token}
+        setTrack={setTrack}
+      />
     </>
   );
 }

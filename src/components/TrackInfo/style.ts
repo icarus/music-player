@@ -11,6 +11,7 @@ export const slide = keyframes`
 `
 
 export const TickerWrapper = styled.div`
+  margin-top: 10rem;
   height: 3em;
   align-text: bottom;
 `
@@ -18,16 +19,34 @@ export const TickerWrapper = styled.div`
 export const TickerContent = styled.div`
   color: var(--gray-500);
   display: flex;
-  justify-content: space-between;
-  font-style: italic;
-  animation: ${slide} 8s linear infinite;
+  width: max-content;
+  animation: ${slide} 20s linear infinite;
 `
 
-export const RotateAnimation = keyframes`
-  from {
-    transform: rotate(0deg);
+export const TickerItem = styled.div`
+  flex-shrink: 0;
+  margin-right: 16rem;
+
+  a {
+    color: var(--gray-500);
+    transition: all 0.5s ease-in-out;
+
+    &:hover {
+      text-decoration: underline;
+    }
   }
-  to {
-    transform: rotate(360deg);
+`;
+
+
+export const TrackDetails = styled.div`
+  color: var(--gray-gray-50);
+  text-align: center;
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 160%;
+
+  a {
+    text-decoration: underline;
   }
 `

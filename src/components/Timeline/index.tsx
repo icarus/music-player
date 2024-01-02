@@ -22,10 +22,10 @@ const TrackTimeline: React.FC<TrackTimelineProps> = ({ durationMs, progressMs })
           height: '100%',
         }}
       ></div>
-      <div style={{ fontSize: '1rem', position: 'absolute', left: 0, top: '100%', marginTop: '1rem', color: 'white' }}>
+      <div style={{ fontSize: '1rem', position: 'absolute', left: '2rem', top: '100%', marginTop: '1rem', color: 'white' }}>
         <span>{formatTime(progressMs)}</span>
       </div>
-      <div style={{ fontSize: '1rem', position: 'absolute', right: 0, top: '100%', marginTop: '1rem', color: 'white' }}>
+      <div style={{ fontSize: '1rem', position: 'absolute', right: '2rem', top: '100%', marginTop: '1rem', color: 'white' }}>
         <span>{formatTime(durationMs)}</span>
       </div>
     </div>

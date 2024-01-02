@@ -64,7 +64,7 @@ function App() {
     setPlaylists(playlistsOptions);
   };
 
-  const getTracks = async (id:string) => {
+  const getTracks = async (id: string) => {
     const { data } = await axios.get(`https://api.spotify.com/v1/playlists/${id}/tracks`, {
       headers : {
         Authorization: `Bearer ${token}`,
@@ -73,6 +73,8 @@ function App() {
     })
     const uris = data.items.map((item: any) => item.track.uri);
     setTracks(uris);
+
+
   }
 
   useEffect(() => {
@@ -101,6 +103,43 @@ function App() {
     }
   };
 
+  const selectTrackAndPlay = async (track: ITrack) => {
+    setTrack(track);
+
+    if (!isPlaying) return;
+
+    try {
+      await axios.put(
+        "https://api.spotify.com/v1/me/player/play",
+        { uris: [track.uri] },
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+            "Content-Type": "application/json",
+          },
+        }
+      );
+    } catch (error) {
+      console.error("Error starting playback:", error);
+    }
+  };
+
+  useEffect(() => {
+    const fetchData = async () => {
+      if (playlists.length > 0) {
+        const firstPlaylist = playlists[0];
+
+        const tracks = await getTracks(firstPlaylist.id);
+
+        const firstTrack = tracks[0];
+
+        selectTrackAndPlay(firstTrack);
+      }
+    };
+
+    fetchData();
+  }, [playlists, getTracks, selectTrackAndPlay]);
+
   if (!token) {
     return(
       <>
@@ -117,8 +156,12 @@ function App() {
           <TrackViewer>
             <TrackInfo
               track={track}
+              token={token}
+              tracks={tracks}
               durationMs={durationMs}
               progressMs={progressMs}
+              setTrack={selectTrackAndPlay}
+              volume={0.5}
             />
           </TrackViewer>
           <Side>
@@ -128,7 +171,7 @@ function App() {
               tracks={tracks}
               playlists={playlists}
               getTracks={getTracks}
-              setTrack={setTrack}
+              setTrack={selectTrackAndPlay}
             />
           </Side>
         </Container>
