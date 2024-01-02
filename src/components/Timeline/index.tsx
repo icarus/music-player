@@ -1,10 +1,11 @@
 interface TrackTimelineProps {
   durationMs: number;
   progressMs: number;
+  isPlaying: boolean;
 }
 
-const TrackTimeline: React.FC<TrackTimelineProps> = ({ durationMs, progressMs }) => {
-  const progressPercentage = (progressMs / durationMs) * 100;
+const TrackTimeline: React.FC<TrackTimelineProps> = ({ durationMs, progressMs, isPlaying }) => {
+  const progressPercentage = isPlaying ? (progressMs / durationMs) * 100 : 0;
 
   const formatTime = (ms: number) => {
     const totalSeconds = Math.floor(ms / 1000);
@@ -14,7 +15,7 @@ const TrackTimeline: React.FC<TrackTimelineProps> = ({ durationMs, progressMs })
   };
 
   return (
-    <div style={{ width: '100%', backgroundColor: 'var(--gray-700)', height: '0.25rem', position: 'relative' }}>
+    <div style={{ width: '100%', backgroundColor: 'var(--gray-700)', height: '4px', position: 'relative' }}>
       <div
         style={{
           width: `${progressPercentage}%`,

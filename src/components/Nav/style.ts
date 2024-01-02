@@ -9,10 +9,6 @@ export const Navbar = styled.nav`
   padding: 0 2rem;
 `
 
-export const h1 = styled.h1`
-
-`
-
 interface IProfileProps {
   profile: string;
 }
@@ -22,4 +18,18 @@ export const Profile = styled.img<IProfileProps> `
   aspect-ratio: 1;
   width: 2rem;
   border-radius: 50%;
+
+  @media (width < 768px) {
+    display: none;
+  }
+`
+
+export const Burger = styled.div`
+  @media (width < 768px) {
+    display: block;
+  }
+
+  @media (width >= 768px) {
+    display: none;
+  }
 `

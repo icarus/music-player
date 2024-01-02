@@ -145,6 +145,10 @@ a {
     aspect-ratio: 1;
     width: 1.5rem;
   }
+
+  @media (width < 768px) {
+    width: 100%;
+  }
 }
 
 .VCR {

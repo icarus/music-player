@@ -9,6 +9,10 @@ import Sidebar from '../Sidebar'
 import { ITrack, PlaylistOption } from '../../types'
 
 function App() {
+  // Responsive
+  const [isSideVisible, setIsSideVisible] = useState(false);
+
+  // Functionality
 	const [token, setToken] = useState<string | null>(null)
   const [profile, setProfile] = useState<string | null>(null)
   const [playlists, setPlaylists] = useState<PlaylistOption[]>([]);
@@ -151,6 +155,8 @@ function App() {
       <>
         <Nav
           profile={profile}
+          onBurgerClick={() => setIsSideVisible(!isSideVisible)}
+          isSideVisible={isSideVisible}
         />
         <Container>
           <TrackViewer>
@@ -164,7 +170,7 @@ function App() {
               volume={0.5}
             />
           </TrackViewer>
-          <Side>
+          <Side isVisible={isSideVisible}>
             <Sidebar
               track={track}
               token={token}

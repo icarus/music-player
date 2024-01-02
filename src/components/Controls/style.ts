@@ -61,4 +61,13 @@ export const Wrapper = styled.div `
   p {
     width: 12rem;
   }
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+
+    p {
+      order: 2;
+      text-align: center;
+    }
+  }
 `

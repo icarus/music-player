@@ -11,7 +11,7 @@ export const slide = keyframes`
 `
 
 export const TickerWrapper = styled.div`
-  margin-top: 10rem;
+  margin-top: 17rem;
   height: 3em;
   align-text: bottom;
 `

@@ -16,10 +16,12 @@ interface IProps {
   tracks: Array<string>;
   track: ITrack | null;
   setTrack: React.Dispatch<React.SetStateAction<ITrack | null>>;
+  volume: number;
+  isPlaying: boolean;
 }
 
 
-const TrackInfo: React.FC<IProps> = ({ track, token, tracks, setTrack, durationMs, progressMs, volume }) => {
+const TrackInfo: React.FC<IProps> = ({ track, token, tracks, setTrack, durationMs, progressMs, volume, isPlaying }) => {
 
   const defaultTrack = {
     name: 'No Track Selected',
@@ -44,6 +46,7 @@ const TrackInfo: React.FC<IProps> = ({ track, token, tracks, setTrack, durationM
         key={track ? track.id : 'placeholder'}
         durationMs={durationMs}
         progressMs={progressMs}
+        isPlaying={isPlaying}
       />
 
       <Controls
