@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import SpotifyWebPlayer from 'react-spotify-web-playback';
 import { IState, ITrack } from '../../../types';
 import { Wrapper, Hidden, Button, PlaybackControls } from './style';
@@ -15,6 +15,9 @@ const Controls: React.FC<IProps> = ({ token, tracks, setTrack, volume }) => {
   const [isPlaying, setIsPlaying] = useState(false);
   const [localVolume, setLocalVolume] = useState(volume);
   const [currentTrackIndex, setCurrentTrackIndex] = useState(0);
+  const [activeButtonIndex, setActiveButtonIndex] = useState(-1);
+
+  const audioRef = useRef(new Audio());
 
   const handleNextTrack = () => {
     if (currentTrackIndex < tracks.length - 1) {
@@ -32,31 +35,43 @@ const Controls: React.FC<IProps> = ({ token, tracks, setTrack, volume }) => {
     setLocalVolume(newVolume);
   };
 
+  const handleIsActive = (buttonIndex) => {
+    setActiveButtonIndex(buttonIndex);
+
+    const audioSrc = "src/assets/sound.mp3";
+    audioRef.current.src = audioSrc;
+    audioRef.current.play();
+  }
+
+  const isButtonActive = (buttonIndex) => {
+    return activeButtonIndex === buttonIndex;
+  }
+
   return (
     <>
       <Wrapper>
         <PlaybackControls>
-          <Button>
+          <Button onClick={() => handleIsActive(0)} isActive={isButtonActive(0)}>
             <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18" fill="none">
               <path d="M0.279785 0.0298462H17.7201V17.4702H0.279785V0.0298462Z" fill="#18181B"/>
             </svg>
           </Button>
-          <Button isActive={isPlaying}>
+          <Button onClick={() => handleIsActive(1)} isActive={isButtonActive(1)}>
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="21" viewBox="0 0 16 21" fill="none">
               <path d="M0.00634766 0.576477V20.9235L15.9933 10.75L0.00634766 0.576477Z" fill="#18181B"/>
             </svg>
           </Button>
-          <Button>
+          <Button onClick={() => handleIsActive(2)} isActive={isButtonActive(2)}>
             <svg xmlns="http://www.w3.org/2000/svg" width="18" height="21" viewBox="0 0 18 21" fill="none">
               <path d="M0.279785 20.9235H6.09323V0.576477H0.279785V20.9235ZM11.9067 0.576477V20.9235H17.7201V0.576477H11.9067Z" fill="#18181B"/>
             </svg>
           </Button>
-          <Button onClick={handlePreviousTrack}>
+          <Button onClick={handleIsActive}>
             <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18" fill="none">
               <path d="M0.279785 0.0298462H3.18651V17.4702H0.279785V0.0298462ZM5.36655 8.75001L17.7201 17.4702V0.0298462L5.36655 8.75001Z" fill="#18181B"/>
             </svg>
           </Button>
-          <Button onClick={handleNextTrack}>
+          <Button onClick={handleIsActive}>
             <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18" fill="none">
               <path d="M17.7202 0.0298462H14.8135V17.4702H17.7202V0.0298462ZM12.6335 8.75001L0.279886 17.4702V0.0298462L12.6335 8.75001Z" fill="#18181B"/>
             </svg>

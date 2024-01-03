@@ -65,20 +65,21 @@ export const Eject = styled.div `
 `;
 
 export const EjectButton = styled.button `
+  cursor: default;
   display: flex;
   width: 100%;
   height: 100%;
   justify-content: center;
-  margin-left: -0.25rem;
   align-items: center;
   border: 5px solid var(--gray-950);
-  background: var(--gray-300);
-  box-shadow: 0px 6px 0px 0px var(--gray-50) inset, 0px -6px 0px 0px var(--gray-500) inset;
+  background: rgba(24, 24, 27, 0.75);
+  box-shadow: 0px 16px 0px 0px rgba(247, 247, 248, 0.15) inset, 0px -16px 0px 0px rgba(115, 117, 132, 0.15) inset;
   transition: background .4s linear;
 
-  &:nth-child(odd) {
-    background: rgba(24, 24, 27, 0.75);
-    box-shadow: 0px 16px 0px 0px rgba(247, 247, 248, 0.15) inset, 0px -16px 0px 0px rgba(115, 117, 132, 0.15) inset;
+  &:nth-child(even) {
+    border-inline: 0px solid var(--gray-950);
+    background: var(--gray-300);
+    box-shadow: 0px 6px 0px 0px var(--gray-50) inset, 0px -6px 0px 0px var(--gray-500) inset;
   }
 `
 
@@ -86,9 +87,12 @@ export const CD = styled.div `
   width: 100%;
   display: flex;
   height: 2rem;
-  border: 5px solid var(--gray-gray-500, #737584);
-  background: var(--gray-gray-950, #18181B);
-  box-shadow: -5px -5px 0px 0px #F7F7F8 inset;
+  margin: 5px;
+  box-shadow: -5px -5px 0px 0px var(--gray-50) inset;
+  border: 5px solid var(--gray-500);
+  border-bottom: none;
+  border-right: none;
+  background: var(--gray-950);
 `
 
 export const AC = styled.div `
@@ -96,6 +100,9 @@ export const AC = styled.div `
   display: flex;
   height: 1rem;
   margin-top: 1rem;
-  background: var(--gray-gray-950, #18181B);
-  box-shadow: -5px -5px 0px 0px #F7F7F8 inset;
+  box-shadow: -5px -5px 0px 0px var(--gray-50) inset;
+  border: 5px solid var(--gray-500);
+  border-bottom: none;
+  border-right: none;
+  background: var(--gray-950);
 `

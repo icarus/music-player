@@ -1,17 +1,19 @@
 import styled from 'styled-components'
 
 export const Container = styled.div`
-  margin: 0.625rem;
   display: flex;
-  width: calc(100vw - 1.25rem);
+  max-width: 100vw;
   height: calc(100vh - 8.75rem);
   justify-content: center;
   align-items: center;
+  border: 10px solid var(--gray-950);
+  border-top: 5px solid var(--gray-950);
   background: var(--gray-300);
 `
 
 export const TrackViewer = styled.div`
-  width: 70%;
+  width: 70vw;
+  height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -29,8 +31,8 @@ interface ISideProps {
 }
 
 export const Side = styled.div<ISideProps>`
-  width: 30%;
-  height: 94%;
+  width: 30vw;
+  height: 95%;
   display: flex;
   flex-direction: column;
   overflow-y: auto;

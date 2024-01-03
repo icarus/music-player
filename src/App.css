@@ -151,11 +151,14 @@ a {
   }
 }
 
+/* VCR */
+
 .VCR {
   font-family: 'VCR OSD Mono', monospace;
   transition: text-decoration .4s linear;
   text-transform: uppercase;
   color: var(--gray-950);
+  text-align: center;
 
   &:hover {
     text-decoration: underline;
@@ -163,6 +166,10 @@ a {
 
   &.big {
     font-size: 1.5rem;
+
+    &:hover {
+      text-decoration: none;
+    }
   }
 }
 
@@ -194,9 +201,10 @@ a {
 .vcr-wrap {
   display: flex;
   flex-direction: column;
+  height: 100%;
   justify-content: space-between;
   margin: 2rem;
-  align-items: center;
+  vertical-align: top;
 }
 
 .vcr-wrap > * {
@@ -207,16 +215,20 @@ a {
   margin-bottom: 0;
 }
 
+.vcr-track-wrap {
+  box-shadow: -5px -5px 0px 0px var(--gray-50) inset;
+  background: var(--gray-500);
+}
+
 .vcr-track {
   display: flex;
+  margin: 5px;
   padding: 2rem;
   gap: 2rem;
   justify-content: left;
   align-items: center;
   align-self: stretch;
-  border: 5px solid var(--gray-500);
   background: var(--gray-950);
-  box-shadow: -5px -5px 0px 0px var(--gray-50) inset;
 }
 
 .vcr-volume-wrapper {

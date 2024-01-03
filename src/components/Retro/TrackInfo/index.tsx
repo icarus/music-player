@@ -1,5 +1,5 @@
 import { ITrack } from "../../../types";
-import { TickerWrapper, TickerContent, TrackDetails, TickerItem, Eject, EjectButton, CD, AC } from './style'
+import { TrackDetails, Eject, EjectButton, CD, AC } from './style'
 import TrackTimeline from "../Timeline";
 import TrackImage from "../TrackImage";
 import Controls from "../Controls";
@@ -32,14 +32,16 @@ const TrackInfo: React.FC<IProps> = ({ track, token, tracks, setTrack, durationM
 
   return (
     <div className="vcr-wrap">
-      <div className="vcr-track">
-        <TrackImage
-          track={track && track.id !== '' ? track : placeholderTrack}
-        />
-        <TrackDetails>
-          <p>{displayTrack.name}</p>
-          <a href={displayTrack.artists[0].uri}>{displayTrack.artists[0].name}</a>
-        </TrackDetails>
+      <div className="vcr-track-wrap">
+        <div className="vcr-track">
+          <TrackImage
+            track={track && track.id !== '' ? track : placeholderTrack}
+          />
+          <TrackDetails>
+            <p>{displayTrack.name}</p>
+            <a href={displayTrack.artists[0].uri}>{displayTrack.artists[0].name}</a>
+          </TrackDetails>
+        </div>
       </div>
 
       <Controls
