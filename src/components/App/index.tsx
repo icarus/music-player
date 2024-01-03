@@ -10,7 +10,7 @@ const App = () => {
     if (currentPath.startsWith('/')) {
       return <RetroApp accessToken={accessToken} />;
     } else {
-      return <RetroApp accessToken={accessToken} />;
+      return <ModernApp accessToken={accessToken} />;
     }
   };
 

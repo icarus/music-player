@@ -12,15 +12,15 @@ interface IProps {
 }
 
 const Controls: React.FC<IProps> = ({ token, tracks, setTrack, volume }) => {
-    // Retro Mode
-    const [currentPath, setCurrentPath] = useState(window.location.pathname);
+  // Retro Mode
+  const [currentPath, setCurrentPath] = useState(window.location.pathname);
 
-    const handleModernModeClick = () => {
-      window.location.pathname = '/modern';
-    };
+  const handleModernModeClick = () => {
+    window.location.pathname = '/modern';
+  };
 
-    const PLAY_BUTTON_INDEX = 1;
-    const PAUSE_BUTTON_INDEX = 2;
+  const PLAY_BUTTON_INDEX = 1;
+  const PAUSE_BUTTON_INDEX = 2;
 
     // End of Retro Mode
 
@@ -40,7 +40,8 @@ const Controls: React.FC<IProps> = ({ token, tracks, setTrack, volume }) => {
       setCurrentTrackIndex(currentTrackIndex + 1);
     }
 
-    setActiveButtonIndex(-1);
+    setActiveButtonIndex(PLAY_BUTTON_INDEX);
+    setIsPlaying(true);
   };
 
   const handlePreviousTrack = () => {
@@ -52,7 +53,8 @@ const Controls: React.FC<IProps> = ({ token, tracks, setTrack, volume }) => {
       setCurrentTrackIndex(currentTrackIndex - 1);
     }
 
-    setActiveButtonIndex(-1);
+    setActiveButtonIndex(PLAY_BUTTON_INDEX);
+    setIsPlaying(true);
   };
 
   const handleVolumeChange = (newVolume) => {
