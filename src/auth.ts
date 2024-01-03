@@ -67,4 +67,3 @@ export async function getAccessToken(clientId: string, code: string): Promise<st
     throw error; // Re-throw the error for further handling
   }
 }
-

@@ -47,11 +47,19 @@ export const TrackDetails = styled.div`
 
   p {
     color: var(--green, #0F0);
+
+    @media (width < 1024px) {
+      font-size: 1rem;
+    }
   }
 
   a {
     color: var(--green, #0F0);
     text-decoration: underline;
+
+    @media (width < 1024px) {
+      font-size: 1rem;
+    }
   }
 `
 

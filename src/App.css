@@ -157,15 +157,23 @@ a {
   font-family: 'VCR OSD Mono', monospace;
   transition: text-decoration .4s linear;
   text-transform: uppercase;
-  color: var(--gray-950);
-  text-align: center;
 
   &:hover {
     text-decoration: underline;
   }
 
+  &.nav {
+    color: var(--gray-950);
+
+    &:hover {
+      text-decoration: none;
+    }
+  }
+
   &.big {
     font-size: 1.5rem;
+    color: var(--gray-950);
+    text-align: center;
 
     &:hover {
       text-decoration: none;
@@ -175,7 +183,7 @@ a {
 
 .vcr-button {
   display: flex;
-  width: 6.75rem;
+  width: 8.75rem;
   height: 3rem;
   justify-content: center;
   align-items: center;

@@ -148,7 +148,29 @@ function RetroApp() {
     return(
       <>
         <Nav/>
-        <Container/>
+        <Container>
+          <TrackViewer>
+            <TrackInfo
+              track={track}
+              token={token}
+              tracks={tracks}
+              durationMs={durationMs}
+              progressMs={progressMs}
+              setTrack={selectTrackAndPlay}
+              volume={0.5}
+            />
+          </TrackViewer>
+          <Side isVisible={isSideVisible}>
+            <Sidebar
+              track={track}
+              token={token}
+              tracks={tracks}
+              playlists={playlists}
+              getTracks={getTracks}
+              setTrack={selectTrackAndPlay}
+            />
+          </Side>
+        </Container>
       </>
     )
   } else {

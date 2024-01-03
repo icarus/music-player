@@ -16,7 +16,7 @@ const Nav:React.FC<IProps> = ( { profile, onBurgerClick, isSideVisible } ) => {
 
   return (
     <Navbar>
-      <h1 className='VCR'>Music Player</h1>
+      <h1 className='VCR nav'>Music Player</h1>
       {!profile ? (
         <button className="vcr-button" onClick={handleClick}>
           <span>
@@ -30,7 +30,7 @@ const Nav:React.FC<IProps> = ( { profile, onBurgerClick, isSideVisible } ) => {
         <>
           <Profile profile={profile}/>
           <Burger onClick={onBurgerClick}>
-            <button className="primary-button">
+            <button className="vcr-button">
               <span>
                 <em>{buttonText}</em>
               </span>

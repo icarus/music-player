@@ -30,6 +30,11 @@ const Sidebar:React.FC<IProps> = ( { playlists, getTracks, token, tracks, setTra
       backgroundColor: 'var(--gray-300)',
       border: '5px solid var(--gray-950)',
       boxShadow: '0px 6px 0px 0px var(--gray-50) inset, 0px -6px 0px 0px var(--gray-500) inset',
+      transition: 'all 0.2s ease-in-out',
+      '&:hover': {
+        backgroundColor: 'var(--gray-400)',
+        border: '5px solid var(--gray-950)',
+      }
     }),
     menuList: (provided) => ({
       ...provided,

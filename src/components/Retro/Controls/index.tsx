@@ -12,6 +12,15 @@ interface IProps {
 }
 
 const Controls: React.FC<IProps> = ({ token, tracks, setTrack, volume }) => {
+    // Retro Mode
+    const [currentPath, setCurrentPath] = useState(window.location.pathname);
+
+    const handleModernModeClick = () => {
+      window.location.pathname = '/modern';
+    };
+
+    // End of Retro Mode
+
   const [isPlaying, setIsPlaying] = useState(false);
   const [localVolume, setLocalVolume] = useState(volume);
   const [currentTrackIndex, setCurrentTrackIndex] = useState(0);
@@ -51,7 +60,7 @@ const Controls: React.FC<IProps> = ({ token, tracks, setTrack, volume }) => {
     <>
       <Wrapper>
         <PlaybackControls>
-          <Button onClick={() => handleIsActive(0)} isActive={isButtonActive(0)}>
+          <Button onClick={handleModernModeClick}>
             <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18" fill="none">
               <path d="M0.279785 0.0298462H17.7201V17.4702H0.279785V0.0298462Z" fill="#18181B"/>
             </svg>

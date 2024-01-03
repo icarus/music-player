@@ -21,7 +21,6 @@ const Controls: React.FC<IProps> = ({ token, tracks, setTrack, volume }) => {
 
   // End of Retro Mode
 
-
   const [isPlaying, setIsPlaying] = useState(false);
   const [localVolume, setLocalVolume] = useState(volume);
   const [currentTrackIndex, setCurrentTrackIndex] = useState(0);

@@ -40,7 +40,7 @@ export const Side = styled.div<ISideProps>`
   @media (max-width: 768px) {
     position: fixed;
     border-left: 0px;
-    width: 90vw;
+    width: calc(100vw - 4rem);
     height: 100%;
     background-color: var(--gray-950);
     left: 100%;
