@@ -128,22 +128,6 @@ function RetroApp() {
     }
   };
 
-  useEffect(() => {
-    const fetchData = async () => {
-      if (playlists.length > 0) {
-        const firstPlaylist = playlists[0];
-
-        const tracks = await getTracks(firstPlaylist.id);
-
-        const firstTrack = tracks[0];
-
-        selectTrackAndPlay(firstTrack);
-      }
-    };
-
-    fetchData();
-  }, [playlists, getTracks, selectTrackAndPlay]);
-
   if (!token) {
     return(
       <>
@@ -156,7 +140,7 @@ function RetroApp() {
               tracks={tracks}
               durationMs={durationMs}
               progressMs={progressMs}
-              setTrack={selectTrackAndPlay}
+              setTrack={setTrack}
               volume={0.5}
             />
           </TrackViewer>
@@ -167,7 +151,7 @@ function RetroApp() {
               tracks={tracks}
               playlists={playlists}
               getTracks={getTracks}
-              setTrack={selectTrackAndPlay}
+              setTrack={setTrack}
             />
           </Side>
         </Container>
@@ -189,7 +173,7 @@ function RetroApp() {
               tracks={tracks}
               durationMs={durationMs}
               progressMs={progressMs}
-              setTrack={selectTrackAndPlay}
+              setTrack={setTrack}
               volume={0.5}
             />
           </TrackViewer>
@@ -200,7 +184,7 @@ function RetroApp() {
               tracks={tracks}
               playlists={playlists}
               getTracks={getTracks}
-              setTrack={selectTrackAndPlay}
+              setTrack={setTrack}
             />
           </Side>
         </Container>

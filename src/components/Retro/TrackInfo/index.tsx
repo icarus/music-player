@@ -7,7 +7,8 @@ import placeholderImg from '../../../assets/placeholder.png';
 
 const placeholderTrack = {
   image: placeholderImg,
-}
+};
+
 
 interface IProps {
   durationMs: number;

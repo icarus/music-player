@@ -51,7 +51,9 @@ const Sidebar:React.FC<IProps> = ( { playlists, getTracks, token, tracks, setTra
     }),
     singleValue: (provided, state) => ({
       ...provided,
-      color: state.isDisabled ? '#fff' : '#fff',
+      display: 'flex',
+      textTransform: 'uppercase',
+      color: 'var(--gray-950)',
     }),
     indicatorSeparator: () => ({
       display: 'none',

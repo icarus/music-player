@@ -14,6 +14,8 @@ interface TrackProps {
 }
 
 export const Track = styled.div<TrackProps>`
+  font-family: 'VCR OSD Mono';
+  text-transform: uppercase;
   display: flex;
   padding: 0.5rem;
   align-items: center;
@@ -22,11 +24,11 @@ export const Track = styled.div<TrackProps>`
 
   &:hover, :focus {
     cursor: pointer;
-    background: var(--gray-900);
+    background: var(--gray-200);
   }
 
   ${props => props.isActive && `
-    background: var(--gray-900);
+    background: var(--gray-200);
   `}
 
   img {
@@ -40,12 +42,19 @@ export const TrackContent = styled.div`
   align-items: flex-start;
   flex-direction: column;
 
+  p {
+    text-align: left;
+    color: var(--gray-950);
+  }
+
   p:last-child {
     text-decoration: underline;
   }
 `
 
 export const ShowMoreButton = styled.button`
+  font-family: 'VCR OSD Mono';
+  text-transform: uppercase;
   color: var(--primary-color);
   text-edge: cap;
   font-size: 1rem;

@@ -7,10 +7,10 @@ const App = () => {
   const [accessToken, setAccessToken] = useState('');
 
   const renderApp = () => {
-    if (currentPath.startsWith('/retro')) {
+    if (currentPath.startsWith('/')) {
       return <RetroApp accessToken={accessToken} />;
     } else {
-      return <ModernApp accessToken={accessToken} />;
+      return <RetroApp accessToken={accessToken} />;
     }
   };
 

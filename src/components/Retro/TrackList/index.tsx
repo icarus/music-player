@@ -11,7 +11,7 @@ interface IProps {
 
 const TrackList: React.FC<IProps> = ({ tracks, token, setTrack }) => {
   const [trackDetails, setTrackDetails] = useState<ITrack[]>([]);
-  const [displayLimit, setDisplayLimit] = useState<number>(12);
+  const [displayLimit, setDisplayLimit] = useState<number>(11);
   const [currentTrack, setCurrentTrack] = useState<ITrack | null>(null);
 
   const selectTrackAndPlay = async (track: ITrack) => {
@@ -44,14 +44,14 @@ const TrackList: React.FC<IProps> = ({ tracks, token, setTrack }) => {
       }));
       setTrackDetails(details);
       setCurrentTrack(details[0]);
-      setDisplayLimit(12);
+      setDisplayLimit(11);
     };
 
     fetchTrackDetails();
   }, [tracks, token]);
 
   const showMoreTracks = () => {
-    setDisplayLimit(prevLimit => prevLimit + 12);
+    setDisplayLimit(prevLimit => prevLimit + 11);
   };
 
   return (
@@ -72,7 +72,7 @@ const TrackList: React.FC<IProps> = ({ tracks, token, setTrack }) => {
         ))}
       </TrackListWrapper>
       {displayLimit < trackDetails.length && (
-        <ShowMoreButton onClick={showMoreTracks}>Show More</ShowMoreButton>
+        <ShowMoreButton onClick={showMoreTracks}>+ Show More</ShowMoreButton>
       )}
     </>
   );
