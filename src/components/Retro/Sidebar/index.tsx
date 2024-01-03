@@ -1,5 +1,5 @@
 import Select, { StylesConfig } from 'react-select';
-import { ITrack, PlaylistOption } from '../../types';
+import { ITrack, PlaylistOption } from '../../../types';
 import TrackList from '../TrackList';
 
 interface IProps {
@@ -20,26 +20,29 @@ const Sidebar:React.FC<IProps> = ( { playlists, getTracks, token, tracks, setTra
   const styles: StylesConfig<OptionType, false> = {
     control: (provided) => ({
       ...provided,
-      marginInline: '0.5rem',
-      fontFamily: 'var(--font-family)',
-      backgroundColor: 'var(--gray-925)',
-      border: '1px solid var(--gray-500);',
+      fontFamily: 'VCR OSD Mono, monospace',
+      width: '100%',
+      height: '3rem',
+      justifyContent: 'left',
+      alignItems: 'left',
+      alignText: 'left',
       borderRadius: '0',
-      color: '#fff',
-      textAlign: 'left',
+      backgroundColor: 'var(--gray-300)',
+      border: '5px solid var(--gray-950)',
+      boxShadow: '0px 6px 0px 0px var(--gray-50) inset, 0px -6px 0px 0px var(--gray-500) inset',
     }),
     menuList: (provided) => ({
       ...provided,
-      backgroundColor: "var(--gray-925)",
-      border: '1px solid var(--gray-500);',
+      backgroundColor: "var(--gray-300)",
+      border: '5px solid var(--gray-950)',
       borderRadius: "0",
       maxHeight: "25vh",
       textAlign: 'left',
     }),
     option: (provided, { isFocused }) => ({
       ...provided,
-      backgroundColor: isFocused ? "var(--gray-800)" : "var(--gray-925)",
-      color: "#fff",
+      backgroundColor: isFocused ? "var(--gray-200)" : "var(--gray-300)",
+      color: 'var(--gray-950)',
     }),
     singleValue: (provided, state) => ({
       ...provided,
@@ -50,8 +53,14 @@ const Sidebar:React.FC<IProps> = ( { playlists, getTracks, token, tracks, setTra
     }),
     dropdownIndicator: (provided) => ({
       ...provided,
-      color: 'var(--gray-500)',
+      color: 'var(--gray-950)',
     }),
+    placeholder: (provided) => ({
+      ...provided,
+      color: 'var(--gray-950)',
+      textTransform: 'uppercase',
+      textAlign: 'left',
+    })
   };
 
   const options: OptionType[] = playlists.map(playlist => ({

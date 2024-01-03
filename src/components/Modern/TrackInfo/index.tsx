@@ -1,9 +1,9 @@
-import { ITrack } from "../../types";
+import { ITrack } from "../../../types";
 import { TickerWrapper, TickerContent, TrackDetails, TickerItem } from './style'
 import TrackTimeline from "../Timeline";
 import TrackImage from "../TrackImage";
 import Controls from "../Controls";
-import placeholderImg from '../../assets/placeholder.png';
+import placeholderImg from '../../../assets/placeholder.png';
 
 const placeholderTrack = {
   image: placeholderImg,

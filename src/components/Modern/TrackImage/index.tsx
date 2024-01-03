@@ -1,5 +1,5 @@
 import { Image, Box } from './style'
-import { ITrack } from '../../types'
+import { ITrack } from '../../../types'
 
 interface IProps {
   track: ITrack | null

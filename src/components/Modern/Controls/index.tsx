@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import SpotifyWebPlayer from 'react-spotify-web-playback';
-import { IState, ITrack } from '../../types';
+import { IState, ITrack } from '../../../types';
 import { Wrapper, Hidden, Button, PlaybackControls } from './style';
 import Volume from '../Volume';
 
@@ -12,6 +12,16 @@ interface IProps {
 }
 
 const Controls: React.FC<IProps> = ({ token, tracks, setTrack, volume }) => {
+  // Retro Mode
+  const [currentPath, setCurrentPath] = useState(window.location.pathname);
+
+  const handleRetroModeClick = () => {
+    window.location.pathname = '/retro';
+  };
+
+  // End of Retro Mode
+
+
   const [isPlaying, setIsPlaying] = useState(false);
   const [localVolume, setLocalVolume] = useState(volume);
   const [currentTrackIndex, setCurrentTrackIndex] = useState(0);
@@ -39,7 +49,7 @@ const Controls: React.FC<IProps> = ({ token, tracks, setTrack, volume }) => {
   return (
     <>
       <Wrapper>
-        <p className='VCR'>RETRO MODE</p>
+        <p className='VCR' onClick={handleRetroModeClick}>RETRO MODE</p>
         <PlaybackControls>
           <Button onClick={handlePreviousTrack}>
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="12" viewBox="0 0 16 12" fill="none">

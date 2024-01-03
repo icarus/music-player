@@ -1,5 +1,5 @@
 import { Navbar, Profile, Burger } from './style';
-import { redirectToAuthCodeFlow } from '../../auth';
+import { redirectToAuthCodeFlow } from '../../../auth';
 
 interface IProps {
   profile?: string | null;

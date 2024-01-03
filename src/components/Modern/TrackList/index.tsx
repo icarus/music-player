@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { TrackListWrapper, Track, TrackContent, ShowMoreButton } from './style';
-import { ITrack } from '../../types';
+import { ITrack } from '../../../types';
 
 interface IProps {
   tracks: Array<string>;

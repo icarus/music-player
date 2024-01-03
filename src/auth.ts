@@ -46,12 +46,25 @@ export async function getAccessToken(clientId: string, code: string): Promise<st
   params.append("redirect_uri", "http://localhost:5173/callback");
   params.append("code_verifier", verifier!);
 
-  const result = await fetch("https://accounts.spotify.com/api/token", {
+  try {
+    const response = await fetch("https://accounts.spotify.com/api/token", {
       method: "POST",
       headers: { "Content-Type": "application/x-www-form-urlencoded" },
       body: params
-  });
+    });
 
-  const { access_token } = await result.json();
-  return access_token;
+    if (!response.ok) {
+      // Log the error response from the server
+      const error = await response.json();
+      console.error("Error fetching access token:", error);
+      throw new Error(`Error fetching access token: ${error.error_description}`);
+    }
+
+    const { access_token } = await response.json();
+    return access_token;
+  } catch (error) {
+    console.error("Error in getAccessToken:", error);
+    throw error; // Re-throw the error for further handling
+  }
 }
+
