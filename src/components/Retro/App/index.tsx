@@ -20,6 +20,8 @@ function RetroApp() {
   const [track, setTrack] = useState<ITrack | null>(null)
   const durationMs = track?.durationMs || 0;
   const [progressMs, setProgressMs] = useState(0);
+  const [isPlaying, setIsPlaying] = useState(false);
+
 
   const clientId = import.meta.env.VITE_CLIENT_ID;
   const params = new URLSearchParams(window.location.search);
@@ -121,6 +123,7 @@ function RetroApp() {
               progressMs={progressMs}
               setTrack={setTrack}
               volume={0.5}
+              isPlaying={isPlaying}
             />
           </TrackViewer>
           <Side isVisible={isSideVisible}>
