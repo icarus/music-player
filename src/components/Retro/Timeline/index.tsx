@@ -1,7 +1,6 @@
 interface TrackTimelineProps {
   durationMs: number;
   progressMs: number;
-  isPlaying: boolean;
 }
 
 const TrackTimeline: React.FC<TrackTimelineProps> = ({ durationMs, progressMs}) => {

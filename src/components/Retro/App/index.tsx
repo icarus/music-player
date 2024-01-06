@@ -107,27 +107,6 @@ function RetroApp() {
     }
   };
 
-  const selectTrackAndPlay = async (track: ITrack) => {
-    setTrack(track);
-
-    if (!isPlaying) return;
-
-    try {
-      await axios.put(
-        "https://api.spotify.com/v1/me/player/play",
-        { uris: [track.uri] },
-        {
-          headers: {
-            Authorization: `Bearer ${token}`,
-            "Content-Type": "application/json",
-          },
-        }
-      );
-    } catch (error) {
-      console.error("Error starting playback:", error);
-    }
-  };
-
   if (!token) {
     return(
       <>

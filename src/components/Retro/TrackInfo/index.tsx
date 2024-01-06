@@ -12,13 +12,13 @@ const placeholderTrack = {
 
 
 interface IProps {
-  durationMs: number;
-  progressMs: number;
+  durationMs: number | 0;
+  progressMs: number | 0;
   token: string | null;
   tracks: Array<string>;
   track: ITrack | null;
   setTrack: React.Dispatch<React.SetStateAction<ITrack | null>>;
-  volume: number;
+  volume: number | 0;
   isPlaying: boolean;
 }
 
@@ -60,7 +60,6 @@ const TrackInfo: React.FC<IProps> = ({ track, token, tracks, setTrack, durationM
         key={track ? track.id : 'placeholder'}
         durationMs={durationMs}
         progressMs={progressMs}
-        isPlaying={isPlaying}
       />
 
       <div className="vcr-divider"/>
