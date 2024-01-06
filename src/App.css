@@ -164,6 +164,7 @@ a {
 
   &.nav {
     color: var(--gray-950);
+    text-align: left;
 
     &:hover {
       text-decoration: none;
