@@ -45,7 +45,6 @@ const TrackInfo: React.FC<IProps> = ({ track, token, tracks, setTrack, durationM
               <a href={displayTrack.artists[0].uri}>{displayTrack.artists[0].name}</a>
             </TrackDetails>
             </div>
-          <img src={spotifyLogo} alt="Spotify Logo" className="spotify"/>
         </div>
       </div>
 

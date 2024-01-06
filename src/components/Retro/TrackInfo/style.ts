@@ -51,14 +51,6 @@ export const TrackDetails = styled.div`
     @media (width < 1080px) {
       font-size: 1.25rem;
     }
-
-    @media (width < 760px) {
-      font-size: 1rem;
-    }
-
-    @media (width < 640px) {
-      font-size: 0.75rem;
-    }
   }
 
   a {
@@ -67,14 +59,6 @@ export const TrackDetails = styled.div`
 
     @media (width < 1080px) {
       font-size: 1.25rem;
-    }
-
-    @media (width < 760px) {
-      font-size: 1rem;
-    }
-
-    @media (width < 640px) {
-      font-size: 0.75rem;
     }
   }
 `
