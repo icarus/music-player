@@ -28,8 +28,6 @@
    - Add your Spotify Client ID and Secret:<br><br>
 
    ```env
-   # .env
-   
    VITE_CLIENT_ID=your_client_id
 
    ```
