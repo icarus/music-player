@@ -21,7 +21,7 @@ export const TrackViewer = styled.div`
   text-align: left;
   overflow: hidden;
 
-  @media (width < 768px) {
+  @media (width < 1080px) {
     width: 100%;
   }
 `
@@ -41,7 +41,7 @@ export const Side = styled.div<ISideProps>`
   padding: 2rem;
   gap: 2rem;
 
-  @media (max-width: 768px) {
+  @media (max-width: 1080px) {
     position: fixed;
     top: 7.5rem;
     width: calc(100vw - 5.25rem);

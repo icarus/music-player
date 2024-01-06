@@ -48,8 +48,16 @@ export const TrackDetails = styled.div`
   p {
     color: var(--green, #0F0);
 
-    @media (width < 1024px) {
+    @media (width < 1080px) {
+      font-size: 1.25rem;
+    }
+
+    @media (width < 760px) {
       font-size: 1rem;
+    }
+
+    @media (width < 640px) {
+      font-size: 0.75rem;
     }
   }
 
@@ -57,19 +65,31 @@ export const TrackDetails = styled.div`
     color: var(--green, #0F0);
     text-decoration: underline;
 
-    @media (width < 1024px) {
+    @media (width < 1080px) {
+      font-size: 1.25rem;
+    }
+
+    @media (width < 760px) {
       font-size: 1rem;
+    }
+
+    @media (width < 640px) {
+      font-size: 0.75rem;
     }
   }
 `
 
 export const Eject = styled.div `
   width: 100%;
-  height: 74px;
+  height: 4rem;
   display: flex;
   padding: 0.3125rem;
   background: var(--gray-500);
   box-shadow: -5px -5px 0px 0px var(--gray-50) inset;
+
+  @media (width < 640px) {
+    height: 3rem;
+  }
 `;
 
 export const EjectButton = styled.button `
@@ -101,9 +121,10 @@ export const CD = styled.div `
   border-bottom: none;
   border-right: none;
   background: var(--gray-950);
+
 `
 
-export const AC = styled.div `
+export const AC = styled.div`
   width: 100%;
   display: flex;
   height: 1rem;
@@ -113,4 +134,4 @@ export const AC = styled.div `
   border-bottom: none;
   border-right: none;
   background: var(--gray-950);
-`
+`;

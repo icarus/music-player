@@ -4,6 +4,7 @@ import TrackTimeline from "../Timeline";
 import TrackImage from "../TrackImage";
 import Controls from "../Controls";
 import placeholderImg from '../../../assets/placeholder.png';
+import spotifyLogo from '../../../assets/Spotify.png';
 
 const placeholderTrack = {
   image: placeholderImg,
@@ -26,7 +27,7 @@ const TrackInfo: React.FC<IProps> = ({ track, token, tracks, setTrack, durationM
 
   const defaultTrack = {
     name: 'No Track Selected',
-    artists: [{ name: 'Select a track to see details', uri: '#' }],
+    artists: [{ name: 'Select a track', uri: '#' }],
   };
 
   const displayTrack = track && track.id !== '' ? track : defaultTrack;
@@ -34,14 +35,17 @@ const TrackInfo: React.FC<IProps> = ({ track, token, tracks, setTrack, durationM
   return (
     <div className="vcr-wrap">
       <div className="vcr-track-wrap">
-        <div className="vcr-track">
-          <TrackImage
-            track={track && track.id !== '' ? track : placeholderTrack}
-          />
-          <TrackDetails>
-            <p>{displayTrack.name}</p>
-            <a href={displayTrack.artists[0].uri}>{displayTrack.artists[0].name}</a>
-          </TrackDetails>
+        <div className="spotify-wrap">
+            <div className="vcr-track">
+            <TrackImage
+              track={track && track.id !== '' ? track : placeholderTrack}
+            />
+            <TrackDetails>
+              <p>{displayTrack.name}</p>
+              <a href={displayTrack.artists[0].uri}>{displayTrack.artists[0].name}</a>
+            </TrackDetails>
+            </div>
+          <img src={spotifyLogo} alt="Spotify Logo" className="spotify"/>
         </div>
       </div>
 
