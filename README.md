@@ -27,6 +27,7 @@
    - Create a .env file in the project root.
    - Add your Spotify Client ID and Secret:
 &nbsp;
+&nbsp;
    ```env
    # .env
    
