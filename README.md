@@ -26,12 +26,12 @@
 4. **Set up environment variables:**
    - Create a .env file in the project root.
    - Add your Spotify Client ID and Secret:
-&nbsp;
-&nbsp;
+
    ```env
    # .env
    
    VITE_CLIENT_ID=your_client_id
+
    ```
    &nbsp; 
 5. **Run the application:**
