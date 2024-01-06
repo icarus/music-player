@@ -1,3 +1,5 @@
+![Portfolio mockup](https://github.com/icarus/music-player/assets/119902348/66297809-1fb9-4ae2-8248-f4f3103284c5)
+
 ## Features
 - **User Authentication**: Secure log in with Spotify credentials.
 - **Search Functionality**: Find songs, albums, and artists.
