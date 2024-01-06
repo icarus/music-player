@@ -1,4 +1,4 @@
-![Portfolio mockup](https://github.com/icarus/music-player/assets/119902348/66297809-1fb9-4ae2-8248-f4f3103284c5)
+![Retro Mode](https://github.com/icarus/music-player/assets/119902348/8d468269-1f3f-437d-be55-31743d71e44d)
 
 ## Features
 - **User Authentication**: Secure log in with Spotify credentials.
