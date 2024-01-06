@@ -27,11 +27,11 @@
    - Create a .env file in the project root.
    - Add your Spotify Client ID and Secret:
    &nbsp;
+   &nbsp;
    ```env
    # .env
    
-   REACT_APP_SPOTIFY_CLIENT_ID=your_client_id
-   REACT_APP_SPOTIFY_CLIENT_SECRET=your_client_secret
+   VITE_CLIENT_ID=your_client_id
    ```
    &nbsp; 
 5. **Run the application:**
