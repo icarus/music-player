@@ -4,9 +4,10 @@ import { redirectToAuthCodeFlow } from '../../../auth';
 interface IProps {
   profile?: string | null;
   onBurgerClick: () => void;
+  isSideVisible: boolean;
 }
 
-const Nav:React.FC<IProps> = ( { profile, onBurgerClick, isSideVisible } ) => {
+const Nav: React.FC<IProps> = ({ profile, onBurgerClick, isSideVisible }) => {
   const clientId = import.meta.env.VITE_CLIENT_ID;
   const buttonText = isSideVisible ? "Close" : "Your Music";
 

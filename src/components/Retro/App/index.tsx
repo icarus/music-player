@@ -8,6 +8,7 @@ import TrackInfo from '../TrackInfo'
 import Sidebar from '../Sidebar'
 import { ITrack, PlaylistOption } from '../../../types'
 
+
 function RetroApp() {
   // Responsive
   const [isSideVisible, setIsSideVisible] = useState(false);
@@ -20,7 +21,7 @@ function RetroApp() {
   const [track, setTrack] = useState<ITrack | null>(null)
   const durationMs = track?.durationMs || 0;
   const [progressMs, setProgressMs] = useState(0);
-  const [isPlaying, setIsPlaying] = useState(false);
+  const [isPlaying] = useState(false);
 
 
   const clientId = import.meta.env.VITE_CLIENT_ID;
