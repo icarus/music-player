@@ -61,7 +61,7 @@ const TrackInfo: React.FC<IProps> = ({ track, token, tracks, setTrack, durationM
         progressMs={progressMs}
       />
 
-      <div className="vcr-divider"/>
+      {/* <div className="vcr-divider"/> */}
 
       <Eject>
         <EjectButton/>
@@ -73,7 +73,7 @@ const TrackInfo: React.FC<IProps> = ({ track, token, tracks, setTrack, durationM
         <EjectButton/>
       </Eject>
 
-      <CD/>
+      {/* <CD/>
       <p className="VCR big">INSERT CD</p>
 
       <div className="AC">
@@ -87,7 +87,7 @@ const TrackInfo: React.FC<IProps> = ({ track, token, tracks, setTrack, durationM
           <AC/>
           <AC/>
         </div>
-      </div>
+      </div> */}
     </div>
   );
 };

@@ -113,7 +113,10 @@ function RetroApp() {
   if (!token) {
     return(
       <>
-        <Nav/>
+        <Nav
+          onBurgerClick={() => {}}
+          isSideVisible={isSideVisible}
+        />
         <Container>
           <TrackViewer>
             <TrackInfo
@@ -158,6 +161,7 @@ function RetroApp() {
               progressMs={progressMs}
               setTrack={setTrack}
               volume={0.5}
+              isPlaying={isPlaying}
             />
           </TrackViewer>
           <Side isVisible={isSideVisible}>

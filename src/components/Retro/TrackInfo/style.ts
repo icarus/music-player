@@ -65,7 +65,7 @@ export const TrackDetails = styled.div`
 
 export const Eject = styled.div `
   width: 100%;
-  height: 4rem;
+  height: 3rem;
   display: flex;
   padding: 0.3125rem;
   background: var(--gray-500);
@@ -80,7 +80,7 @@ export const EjectButton = styled.button `
   cursor: default;
   display: flex;
   width: 100%;
-  height: 100%;
+  height: 3rem;
   justify-content: center;
   align-items: center;
   border: 5px solid var(--gray-950);
