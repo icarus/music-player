@@ -1,4 +1,4 @@
-![Portfolio mockup](https://github.com/icarus/music-player/assets/119902348/66297809-1fb9-4ae2-8248-f4f3103284c5)
+![Retro Mode](https://github.com/icarus/music-player/assets/119902348/8d468269-1f3f-437d-be55-31743d71e44d)
 
 ## Features
 - **User Authentication**: Secure log in with Spotify credentials.
@@ -25,13 +25,11 @@
    &nbsp;
 4. **Set up environment variables:**
    - Create a .env file in the project root.
-   - Add your Spotify Client ID and Secret:
-   &nbsp;
+   - Add your Spotify Client ID and Secret:<br><br>
+
    ```env
-   # .env
-   
-   REACT_APP_SPOTIFY_CLIENT_ID=your_client_id
-   REACT_APP_SPOTIFY_CLIENT_SECRET=your_client_secret
+   VITE_CLIENT_ID=your_client_id
+
    ```
    &nbsp; 
 5. **Run the application:**
