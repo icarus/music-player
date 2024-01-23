@@ -40,3 +40,21 @@ export interface IState {
   track: SpotifyTrack;
   volume: number;
 }
+
+interface SpotifyWebPlayerProps {
+  token: string;
+  uris: string[];
+  play: boolean;
+  callback: (state: IState) => void;
+  styles: {
+    activeColor: string;
+    bgColor: string;
+    color: string;
+    loaderColor: string;
+    sliderColor: string;
+    sliderHandleColor: string;
+    trackArtistColor: string;
+    trackNameColor: string;
+  };
+  volume: number;
+}

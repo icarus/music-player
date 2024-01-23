@@ -9,9 +9,10 @@ interface IProps {
   tracks: Array<string>;
   setTrack: React.Dispatch<React.SetStateAction<ITrack | null>>;
   volume: number;
+  setVolume: (newVolume: number) => void;
 }
 
-const Controls: React.FC<IProps> = ({ token, tracks, setTrack, volume }) => {
+const Controls: React.FC<IProps> = ({ token, tracks, setTrack, volume, setVolume }) => {
   // Retro Mode
   // const [currentPath, setCurrentPath] = useState(window.location.pathname);
 
@@ -57,7 +58,7 @@ const Controls: React.FC<IProps> = ({ token, tracks, setTrack, volume }) => {
     setIsPlaying(true);
   };
 
-  const handleVolumeChange = (newVolume) => {
+  const handleVolumeChange = (newVolume: number) => {
     setLocalVolume(newVolume);
   };
 
@@ -79,7 +80,7 @@ const Controls: React.FC<IProps> = ({ token, tracks, setTrack, volume }) => {
     audioRef.current.play();
   };
 
-  const isButtonActive = (buttonIndex) => {
+  const isButtonActive = (buttonIndex: number) => {
     return activeButtonIndex === buttonIndex;
   };
 
@@ -121,22 +122,30 @@ const Controls: React.FC<IProps> = ({ token, tracks, setTrack, volume }) => {
           </Button>
         </PlaybackControls>
         <Volume
-          volume={localVolume}
           setVolume={handleVolumeChange}
         />
       </Wrapper>
 
       <Hidden>
-        <SpotifyWebPlayer
-          token={token}
-          uris={[tracks[currentTrackIndex]]}
-          play={isPlaying}
-          volume={localVolume}
-          callback={(state: IState) => {
-            setIsPlaying(state.isPlaying);
-            setTrack(state.track);
-          }}
-        />
+          <SpotifyWebPlayer
+            token={token}
+            uris={[tracks[currentTrackIndex]]}
+            play={isPlaying}
+            callback={(state: IState) => {
+              setIsPlaying(state.isPlaying);
+              setTrack(state.track);
+            }}
+            styles={{
+              activeColor: '#fff',
+              bgColor: '#333',
+              color: '#fff',
+              loaderColor: '#fff',
+              sliderColor: '#1cb954',
+              sliderHandleColor: '#1cb954',
+              trackArtistColor: '#ccc',
+              trackNameColor: '#fff',
+            }}
+          />
       </Hidden>
     </>
   );
